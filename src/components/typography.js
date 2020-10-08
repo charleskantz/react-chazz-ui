@@ -6,7 +6,7 @@ to the component and change what element it renders as
 Example: <H3 as="h3">Text Here</H3>
 */
 
-export const sharedHeadingStyle = `
+export const headingStyle = `
   font-family: Quicksand;
   font-style: normal;
   font-weight: normal;
@@ -16,19 +16,19 @@ export const sharedHeadingStyle = `
 `;
 
 export const H1 = styled.h1`
-  ${sharedHeadingStyle}
+  ${headingStyle}
   margin: 0 0 20px;
 `;
 
 export const H2 = styled.h2`
-  ${sharedHeadingStyle}
+  ${headingStyle}
   font-size: 32px;
   line-height: 40px;
   margin: 0 0 20px;
 `;
 
 export const H3 = styled.h3`
-  ${sharedHeadingStyle}
+  ${headingStyle}
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
@@ -36,7 +36,7 @@ export const H3 = styled.h3`
 `;
 
 export const H4 = styled.h4`
-  ${sharedHeadingStyle}
+  ${headingStyle}
   font-weight: bold;
   font-size: 19px;
   line-height: 24px;
@@ -45,7 +45,7 @@ export const H4 = styled.h4`
 
 /* Body, label, and other styles */
 
-export const sharedBodyStyle = `
+export const bodyStyle = `
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -56,11 +56,18 @@ export const sharedBodyStyle = `
 `;
 
 export const Body = styled.p`
-  ${sharedBodyStyle}
+  ${bodyStyle}
   margin: 0 0 20px;
 `;
 
-export const sharedLabelStyle = `
+export const captionStyle = `
+  ${bodyStyle}
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(31, 32, 65, 0.75);
+`;
+
+export const labelStyle = `
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -72,5 +79,5 @@ export const sharedLabelStyle = `
 `;
 
 export const Label = styled.label`
-  ${sharedBodyStyle}
+  ${bodyStyle}
 `;
