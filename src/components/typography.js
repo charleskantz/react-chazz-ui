@@ -46,13 +46,19 @@ export const H4 = styled.h4`
 /* Body, label, and other styles */
 
 export const bodyStyle = `
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: .15px;
-  color: rgba(31, 32, 65, 0.75);
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+letter-spacing: .15px;
+color: rgba(31, 32, 65, 0.75);
+`;
+
+export const H5 = styled.h5`
+  ${bodyStyle}
+  font-weight: bold;
+  margin: 0 0 12px;
 `;
 
 export const Body = styled.p`

@@ -16,13 +16,12 @@ export const ColorPanel = styled.div`
   ${props => props.theme.typography.headingStyle}
   color: white;
   text-align: center;
-  background: linear-gradient(
-    180deg,
-    ${props => props.theme.color.teal.base} 0%,
-    ${props => props.theme.color.blue.base} 100%
-  );
+  background: ${props => props.color
+    ? props.theme.color[props.color].base
+    : `linear-gradient(
+      180deg,
+      ${props.theme.color.teal.base} 0%,
+      ${props.theme.color.blue.base} 100%)
+  `};
   padding: 60px 40px;
-  top: 0;
-  left: 0;
-  right: 0;
 `;

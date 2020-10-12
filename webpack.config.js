@@ -35,6 +35,16 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: 'docs/'
+    contentBase: 'docs/',
+    port: 3000,
+    onListening: function(server) {
+      const port = server.listeningApp.address().port;
+      setTimeout(() => {
+        console.log("\x1b[46m%s\x1b[0m", "///////////////////////////");
+        console.log("\x1b[46m%s\x1b[0m", `  Live on localhost:${port}!  `);
+        console.log("\x1b[46m%s\x1b[0m", "///////////////////////////");
+      }, 4000)
+
+    }
   }
 }

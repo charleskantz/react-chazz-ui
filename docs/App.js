@@ -1,5 +1,27 @@
-import React from 'react';
-import { H1, H2, H3, H4, Body, Card, ColorPanel, ContentDiv, GlobalTheme, Button, Banner, Badge } from 'react-chazz-ui';
+import React, { useState } from 'react';
+import {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  Body,
+  Card,
+  ColorPanel,
+  ContentDiv,
+  GlobalTheme,
+  Button,
+  Banner,
+  Badge,
+  TextField,
+  InputLabel,
+  TextArea,
+  Form,
+  Checkbox,
+  CheckboxLabel,
+  Radio,
+  RadioLabel
+} from 'react-chazz-ui';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -14,6 +36,34 @@ const Container = styled.div`
 `;
 
 function App() {
+
+  const initialForm = {
+    firstname: '',
+    lastname: '',
+    title: '',
+    email: '',
+    option: 'option1',
+    addComments: true,
+    comments: ''
+  }
+
+  const [ form, setForm ] = useState(initialForm);
+
+  const handleChange = evt => {
+    const { name, value } = evt.target;
+    setForm(form => ({
+      ...form,
+      [name]: value
+    }));
+  }
+
+  const handleCheck = () => {
+    setForm(form => ({
+      ...form,
+      addComments: !form.addComments
+    }))
+  }
+
   return (
     <GlobalTheme>
       <Container>
@@ -42,13 +92,9 @@ function App() {
             <Body>
               Hi there my name is body type <Badge color="yellow">Yep here</Badge>
             </Body>
-            <Body>
-              Hi there my name is body type and I take
-              up a lot of space so my sample text looks
-              more like a real thing. my name is body type and I take
-              up a lot of space so my sample text looks
-              more like a real thing.
-            </Body>
+            <InputLabel> Testing the label
+              <TextField type="text" placeholder="placeholder text here" />
+            </InputLabel>
             <Button>Click Me</Button>
           </ContentDiv>
         </Card>
@@ -66,6 +112,95 @@ function App() {
               more like a real thing.
             </Body>
             <Button fullWidth color="teal">Click Me</Button>
+          </ContentDiv>
+        </Card>
+        <Card>
+          <ColorPanel >
+            We can't wait to hear from you!
+          </ColorPanel>
+          <ContentDiv>
+            <Body>
+              Give us your contact information and our fake customer
+              service team will get back to you shortly.
+            </Body>
+            <Form>
+              <InputLabel> First Name
+                <TextField
+                  type='text'
+                  name='firstname'
+                  placeholder='Jean Luc'
+                  autoComplete='given-name'
+                  value={form.firstname}
+                  onChange={handleChange}
+                />
+              </InputLabel>
+              <InputLabel> Last Name
+                <TextField
+                  type='text'
+                  name='lastname'
+                  placeholder='Picard'
+                  autoComplete='family-name'
+                  value={form.lastname}
+                  onChange={handleChange}
+                />
+              </InputLabel>
+              <InputLabel> Title
+                <TextField
+                  type='text'
+                  name='jobtitle'
+                  placeholder='Captain, United Federation of Planets'
+                  autoComplete='organization-title'
+                  value={form.title}
+                  onChange={handleChange}
+                />
+              </InputLabel>
+              <InputLabel> Email
+                <TextField
+                  type='text'
+                  name='email'
+                  placeholder='jpicard@federation.gov'
+                  autoComplete='email'
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </InputLabel>
+              <H5>
+                Choose a radio button:
+              </H5>
+              <RadioLabel>
+                <Radio
+                  name='option'
+                  value='option1'
+                  checked={form.option === 'option1'}
+                  onChange={handleChange}
+                /> Here's Radio 1
+              </RadioLabel>
+              <RadioLabel>
+                <Radio
+                  name='option'
+                  value='option2'
+                  checked={form.option === 'option2'}
+                  onChange={handleChange}
+                /> Radio 2 could be cool too
+              </RadioLabel>
+              <CheckboxLabel>
+                <Checkbox
+                  name='addComments'
+                  checked={form.addComments}
+                  onChange={handleCheck}
+                /> Add some comments
+              </CheckboxLabel>
+              <InputLabel> Comments
+                <TextArea
+                  name='comments'
+                  placeholder="Things are only impossible until they're not."
+                  value={form.comments}
+                  onChange={handleChange}
+                  disabled={!form.addComments}
+                ></TextArea>
+              </InputLabel>
+            </Form>
+            <Button fullWidth color="blue">Submit</Button>
           </ContentDiv>
         </Card>
       </Container>
