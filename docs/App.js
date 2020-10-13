@@ -20,7 +20,10 @@ import {
   Checkbox,
   CheckboxLabel,
   Radio,
-  RadioLabel
+  RadioLabel,
+  Select,
+  SelectWrapper,
+  Range
 } from 'react-chazz-ui';
 import styled from 'styled-components';
 
@@ -44,7 +47,8 @@ function App() {
     email: '',
     option: 'option1',
     addComments: true,
-    comments: ''
+    comments: '',
+    range: '0'
   }
 
   const [ form, setForm ] = useState(initialForm);
@@ -198,6 +202,25 @@ function App() {
                   onChange={handleChange}
                   disabled={!form.addComments}
                 ></TextArea>
+              </InputLabel>
+              <InputLabel>Select one of these
+                <SelectWrapper>
+                  <Select>
+                    <option>Try this one</option>
+                    <option>Maybe this</option>
+                    <option>def not this though</option>
+                  </Select>
+                </SelectWrapper>
+              </InputLabel>
+              <InputLabel> How's the range here? {form.range}
+                <Range
+                  name="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value={form.range}
+                  onChange={handleChange}
+                  />
               </InputLabel>
             </Form>
             <Button fullWidth color="blue">Submit</Button>
