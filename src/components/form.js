@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import { ErrorOutline } from '@styled-icons/material-outlined';
 
 /* Selection animation */
 
@@ -46,6 +47,11 @@ export const TextField = styled.input`
   &:focus, &:hover {
     border: 1px solid ${props => props.theme.color.ink.base};
   }
+
+  ${props => props.error && `
+    border: 1px solid ${props.theme.color.red.base};
+    background: ${props.theme.color.red.lighter};
+  `}
 `;
 
 export const TextArea = styled(TextField.withComponent('textarea'))`
@@ -58,6 +64,21 @@ export const TextArea = styled(TextField.withComponent('textarea'))`
 export const InputLabel = styled.label`
   ${props => props.theme.typography.labelStyle}
   display: block;
+`;
+
+export const InputHelpText = styled.div`
+  ${props => props.theme.typography.captionStyle}
+
+  ${InputLabel} + & {
+    margin: -8px 0 15px;
+  }
+
+  ${props => props.error && `
+    color: ${props.theme.color.red.base};
+    &::before {
+      content: '${ErrorOutline}';
+    }
+  `}
 `;
 
 export const Form = styled.form`

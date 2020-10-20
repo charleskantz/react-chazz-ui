@@ -16,6 +16,7 @@ import {
   Badge,
   TextField,
   InputLabel,
+  InputHelpText,
   TextArea,
   Form,
   Checkbox,
@@ -97,8 +98,9 @@ function App() {
               Hi there my name is body type <Badge color="yellow">Yep here</Badge>
             </Body>
             <InputLabel> Testing the label
-              <TextField type="text" placeholder="placeholder text here" />
+              <TextField error type="text" placeholder="placeholder text here" />
             </InputLabel>
+            <InputHelpText>Testing 1 2 3</InputHelpText>
             <Button>Click Me</Button>
           </ContentDiv>
         </Card>
@@ -141,6 +143,7 @@ function App() {
                   onChange={handleChange}
                 />
               </InputLabel>
+              <InputHelpText>Testing 1 2 3</InputHelpText>
               <InputLabel> Last Name
                 <TextField
                   type='text'
@@ -233,7 +236,7 @@ function App() {
                 />
               </InputLabel>
             </Form>
-            <Button fullWidth color="blue">Submit</Button>
+            <Button color="blue">Submit</Button>
           </ContentDiv>
         </Card>
       </Container>

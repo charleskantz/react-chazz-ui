@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import * as color from './color';
 
 /* Headings - font import on HTML file
 Note - with styled-components you can attach an 'as' attribute
 to the component and change what element it renders as
-Example: <H3 as="h3">Text Here</H3>
+Example: <H3 as="h5">Text Here</H3> => <h5>Text Here</h5>
 */
 
 export const headingStyle = `
@@ -12,7 +13,7 @@ export const headingStyle = `
   font-weight: normal;
   font-size: 42px;
   line-height: 52px;
-  color: #1F2041;
+  color: ${color.ink.base};
 `;
 
 export const H1 = styled.h1`
@@ -52,7 +53,7 @@ font-weight: normal;
 font-size: 14px;
 line-height: 24px;
 letter-spacing: .15px;
-color: rgba(31, 32, 65, 0.75);
+color: ${color.ink.light};
 `;
 
 export const H5 = styled.h5`
@@ -70,7 +71,7 @@ export const captionStyle = `
   ${bodyStyle}
   font-size: 12px;
   line-height: 15px;
-  color: rgba(31, 32, 65, 0.75);
+  color: ${color.ink.lighter};
 `;
 
 export const labelStyle = `
@@ -81,7 +82,7 @@ export const labelStyle = `
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 1px;
-  color: rgba(31, 32, 65, 0.75);
+  color: ${color.ink.light};
 `;
 
 export const BodyLabel = styled.p`

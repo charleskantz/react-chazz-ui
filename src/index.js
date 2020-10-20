@@ -4,6 +4,6 @@ export { GlobalTheme } from './components/GlobalTheme';
 export { Button } from './components/actions';
 export { chazzTheme } from './components/theme';
 export { Banner, Badge } from './components/feedback';
-export { TextField, InputLabel, TextArea, Form, CheckboxLabel, RadioLabel, RadioGroup, Select, SelectWrapper, Range } from './components/form';
+export { TextField, InputLabel, InputHelpText, TextArea, Form, CheckboxLabel, RadioLabel, RadioGroup, Select, SelectWrapper, Range } from './components/form';
 export { Checkbox } from './components/Checkbox';
 export { Radio } from './components/Radio';
