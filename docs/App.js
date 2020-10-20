@@ -6,6 +6,7 @@ import {
   H4,
   H5,
   Body,
+  BodyLabel,
   Card,
   ColorPanel,
   ContentDiv,
@@ -170,9 +171,9 @@ function App() {
                   onChange={handleChange}
                 />
               </InputLabel>
-              <H5>
-                Choose a radio button:
-              </H5>
+              <BodyLabel>
+                Choose a radio button
+              </BodyLabel>
               <RadioGroup>
                 <RadioLabel>
                   <Radio

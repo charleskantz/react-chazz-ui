@@ -1,4 +1,4 @@
-export { H1, H2, H3, H4, H5, Body } from './components/typography';
+export { H1, H2, H3, H4, H5, Body, BodyLabel } from './components/typography';
 export { Card, ColorPanel, ContentDiv, HorizontalRule } from './components/structure';
 export { GlobalTheme } from './components/GlobalTheme';
 export { Button } from './components/actions';

@@ -1,6 +1,28 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
-export const TextField =  styled.input`
+/* Selection animation */
+
+const selectAnim = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 white
+  }
+  50% {
+    box-shadow: 0 0 0 2px #006FBB
+  }
+  100% {
+    box-shadow: 0 0 0 4px white
+  }
+`;
+
+const animationLength = `.15s`;
+
+const animation = css`
+  ${selectAnim} ${animationLength} linear;
+`;
+
+/* Base styles for text inputs */
+
+export const TextField = styled.input`
   ${props => props.theme.typography.bodyStyle}
   box-sizing: border-box;
   border: 1px solid ${props => props.theme.color.sky.dark};
@@ -59,16 +81,17 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox'})`
 
 export const Icon = styled.svg`
   fill: none;
-  stroke: ${props => props.theme.color.blue.base};
-  stroke-width: 2px;
+  stroke: white;
+  stroke-width: 3px;
+  padding-bottom: .75px;
 `;
 
 export const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: white;
-  border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.base};
+  background: ${props => props.checked ? props.theme.color.blue.base : 'white'};
+  border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.dark};
   border-radius: 4px;
   transition: all 150ms;
 
@@ -79,6 +102,12 @@ export const StyledCheckbox = styled.div`
   ${Icon} {
     visibility: ${props => props.checked ? 'visible' : 'hidden'};
   }
+
+  &:focus, &:hover {
+    border: 1px solid ${props => props.theme.color.blue.base};
+  }
+
+  animation: ${props => props.checked ? animation : `none`};
 `;
 
 export const CheckboxContainer = styled.div`
@@ -138,6 +167,8 @@ export const StyledRadio = styled.div`
   &:focus, &:hover {
     border: 1px solid ${props => props.theme.color.ink.base};
   }
+
+  animation: ${props => props.checked ? animation : `none`};
 `;
 
 export const RadioLabel = styled.label`

@@ -84,6 +84,11 @@ export const labelStyle = `
   color: rgba(31, 32, 65, 0.75);
 `;
 
+export const BodyLabel = styled.p`
+  ${labelStyle}
+  margin: 0 0 10px;
+`;
+
 export const Label = styled.label`
   ${bodyStyle}
 `;
