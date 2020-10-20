@@ -21,9 +21,11 @@ import {
   CheckboxLabel,
   Radio,
   RadioLabel,
+  RadioGroup,
   Select,
   SelectWrapper,
-  Range
+  Range,
+  HorizontalRule
 } from 'react-chazz-ui';
 import styled from 'styled-components';
 
@@ -31,11 +33,8 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  @media (min-width: 768px) {
-    width: 1100px;
-  }
 `;
 
 function App() {
@@ -51,7 +50,7 @@ function App() {
     range: '0'
   }
 
-  const [ form, setForm ] = useState(initialForm);
+  const [form, setForm] = useState(initialForm);
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -89,7 +88,7 @@ function App() {
             <Banner>
               This is a banner test
             </Banner>
-            <H4>Testing card creation with placeholder text</H4>
+            <H4>Testing card creation with placeholder text TES</H4>
             <Banner color="blue">
               This is a banner test
             </Banner>
@@ -102,6 +101,9 @@ function App() {
             <Button>Click Me</Button>
           </ContentDiv>
         </Card>
+      </Container>
+      <HorizontalRule />
+      <Container>
         <Card>
           <ColorPanel>
             Here's some cool text for the color panel
@@ -171,22 +173,25 @@ function App() {
               <H5>
                 Choose a radio button:
               </H5>
-              <RadioLabel>
-                <Radio
-                  name='option'
-                  value='option1'
-                  checked={form.option === 'option1'}
-                  onChange={handleChange}
-                /> Here's Radio 1
-              </RadioLabel>
-              <RadioLabel>
-                <Radio
-                  name='option'
-                  value='option2'
-                  checked={form.option === 'option2'}
-                  onChange={handleChange}
-                /> Radio 2 could be cool too
-              </RadioLabel>
+              <RadioGroup>
+                <RadioLabel>
+                  <Radio
+                    name='option'
+                    value='option1'
+                    checked={form.option === 'option1'}
+                    onChange={handleChange}
+                  /> Here's Radio 1
+                </RadioLabel>
+                <RadioLabel>
+                  <Radio
+                    name='option'
+                    value='option2'
+                    checked={form.option === 'option2'}
+                    onChange={handleChange}
+                  /> Radio 2 could be cool too
+                </RadioLabel>
+
+              </RadioGroup>
               <CheckboxLabel>
                 <Checkbox
                   name='addComments'
@@ -194,15 +199,19 @@ function App() {
                   onChange={handleCheck}
                 /> Add some comments
               </CheckboxLabel>
-              <InputLabel> Comments
-                <TextArea
-                  name='comments'
-                  placeholder="Things are only impossible until they're not."
-                  value={form.comments}
-                  onChange={handleChange}
-                  disabled={!form.addComments}
-                ></TextArea>
-              </InputLabel>
+              {form.addComments &&
+                <>
+                  <InputLabel> Comments
+                  <TextArea
+                      name='comments'
+                      placeholder="Things are only impossible until they're not."
+                      value={form.comments}
+                      onChange={handleChange}
+                      disabled={!form.addComments}
+                    ></TextArea>
+                  </InputLabel>
+                </>
+              }
               <InputLabel>Select one of these
                 <SelectWrapper>
                   <Select>
@@ -220,7 +229,7 @@ function App() {
                   step="1"
                   value={form.range}
                   onChange={handleChange}
-                  />
+                />
               </InputLabel>
             </Form>
             <Button fullWidth color="blue">Submit</Button>

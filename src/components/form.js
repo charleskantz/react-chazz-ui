@@ -10,8 +10,10 @@ export const TextField =  styled.input`
   padding: 0 10px;
   width: 100%;
   height: 44px;
+  transition: all 150ms;
 
   &:focus {
+    outline: none;
     box-shadow: 0 0 0 3px ${props => props.theme.color.blue.light};
   }
 
@@ -28,6 +30,7 @@ export const TextArea = styled(TextField.withComponent('textarea'))`
   padding: 8px 10px;
   height: 80px;
   resize: vertical;
+  transition: all 150ms;
 `;
 
 export const InputLabel = styled.label`
@@ -62,12 +65,12 @@ export const Icon = styled.svg`
 
 export const StyledCheckbox = styled.div`
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: white;
   border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.base};
   border-radius: 4px;
-  transition: all 250ms;
+  transition: all 150ms;
 
   ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px ${props => props.theme.color.blue.light};
@@ -80,11 +83,13 @@ export const StyledCheckbox = styled.div`
 
 export const CheckboxContainer = styled.div`
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: sub;
   margin-right: 5px;
 `;
 
-export const CheckboxLabel = styled(InputLabel)`
+export const CheckboxLabel = styled.label`
+  ${props => props.theme.typography.bodyStyle}
+  display: inline-block;
   margin-bottom: 15px;
 `;
 
@@ -105,22 +110,22 @@ export const HiddenRadio = styled.input.attrs({ type: 'radio'})`
 
 export const RadioDot = styled.div`
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
   background: ${props => props.theme.color.blue.base};
 `;
 
 export const StyledRadio = styled.div`
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: white;
-  border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.base};
-  border-radius: 10px;
+  border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.dark};
+  border-radius: 8px;
   transition: all 250ms;
 
   ${HiddenRadio}:focus + & {
@@ -130,12 +135,19 @@ export const StyledRadio = styled.div`
   ${RadioDot} {
     visibility: ${props => props.checked ? 'visible' : 'hidden'};
   }
+  &:focus, &:hover {
+    border: 1px solid ${props => props.theme.color.ink.base};
+  }
 `;
 
-export const RadioLabel = styled(InputLabel)`
-${props => props.theme.typography.bodyStyle}
-  margin-bottom: 8px;
+export const RadioLabel = styled.label`
+  ${props => props.theme.typography.bodyStyle}
+  display: block;
   text-transform: none;
+`;
+
+export const RadioGroup = styled.div`
+  margin-bottom: 15px;
 `;
 
 /* Select */
@@ -176,19 +188,28 @@ export const SelectWrapper = styled.div`
 
 /* Range Slider */
 
-export const Range = styled.input.attrs({ type: 'range'})`
-  box-sizing: border-box;
+export const Range = styled(TextField).attrs({ type: 'range' })`
   -webkit-appearance: none;
-  width: 100%;
   background: transparent;
-  border: 1px solid ${props => props.theme.color.sky.base};
-  padding: 4px;
-  border-radius: 20px;
-  margin: 5px 0 10px;
-  color: red;
+  margin: 10px 0 15px;
+  height: 8px;
+  border-radius: 4px;
+  transition: all 150ms;
+  padding: 0 6px;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px ${props => props.theme.color.blue.light};
+    box-shadow: 0 0 0 2px ${props => props.theme.color.blue.light};
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2px solid white;
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background: ${props => props.theme.color.blue.base};
+    cursor: pointer;
+    margin-top: 0;
   }
 `;
