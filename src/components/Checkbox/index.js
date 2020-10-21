@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckboxContainer, HiddenCheckbox, StyledCheckbox, Icon } from './form';
+import { CheckboxContainer, HiddenCheckbox, StyledCheckbox, Icon } from './Checkbox';
 
 export function Checkbox({ className, checked, ...props }) {
   return (

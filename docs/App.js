@@ -15,18 +15,18 @@ import {
   Banner,
   Badge,
   TextField,
-  InputLabel,
+  Label,
   InputHelpText,
   TextArea,
   Form,
   Checkbox,
   CheckboxLabel,
-  Radio,
+  RadioButton,
   RadioLabel,
   RadioGroup,
   Select,
   SelectWrapper,
-  Range,
+  RangeSlider,
   HorizontalRule
 } from 'react-chazz-ui';
 import styled from 'styled-components';
@@ -97,9 +97,9 @@ function App() {
             <Body>
               Hi there my name is body type <Badge color="yellow">Yep here</Badge>
             </Body>
-            <InputLabel> Testing the label
+            <Label> Testing the label
               <TextField error type="text" placeholder="placeholder text here" />
-            </InputLabel>
+            </Label>
             <InputHelpText>Testing 1 2 3</InputHelpText>
             <Button>Click Me</Button>
           </ContentDiv>
@@ -133,7 +133,7 @@ function App() {
               service team will get back to you shortly.
             </Body>
             <Form>
-              <InputLabel> First Name
+              <Label> First Name
                 <TextField
                   type='text'
                   name='firstname'
@@ -142,9 +142,9 @@ function App() {
                   value={form.firstname}
                   onChange={handleChange}
                 />
-              </InputLabel>
+              </Label>
               <InputHelpText>Testing 1 2 3</InputHelpText>
-              <InputLabel> Last Name
+              <Label> Last Name
                 <TextField
                   type='text'
                   name='lastname'
@@ -153,8 +153,8 @@ function App() {
                   value={form.lastname}
                   onChange={handleChange}
                 />
-              </InputLabel>
-              <InputLabel> Title
+              </Label>
+              <Label> Title
                 <TextField
                   type='text'
                   name='jobtitle'
@@ -163,8 +163,8 @@ function App() {
                   value={form.title}
                   onChange={handleChange}
                 />
-              </InputLabel>
-              <InputLabel> Email
+              </Label>
+              <Label> Email
                 <TextField
                   type='text'
                   name='email'
@@ -173,13 +173,13 @@ function App() {
                   value={form.email}
                   onChange={handleChange}
                 />
-              </InputLabel>
+              </Label>
               <BodyLabel>
                 Choose a radio button
               </BodyLabel>
               <RadioGroup>
                 <RadioLabel>
-                  <Radio
+                  <RadioButton
                     name='option'
                     value='option1'
                     checked={form.option === 'option1'}
@@ -187,7 +187,7 @@ function App() {
                   /> Here's Radio 1
                 </RadioLabel>
                 <RadioLabel>
-                  <Radio
+                  <RadioButton
                     name='option'
                     value='option2'
                     checked={form.option === 'option2'}
@@ -205,7 +205,7 @@ function App() {
               </CheckboxLabel>
               {form.addComments &&
                 <>
-                  <InputLabel> Comments
+                  <Label> Comments
                   <TextArea
                       name='comments'
                       placeholder="Things are only impossible until they're not."
@@ -213,10 +213,10 @@ function App() {
                       onChange={handleChange}
                       disabled={!form.addComments}
                     ></TextArea>
-                  </InputLabel>
+                  </Label>
                 </>
               }
-              <InputLabel>Select one of these
+              <Label>Select one of these
                 <SelectWrapper>
                   <Select>
                     <option>Try this one</option>
@@ -224,9 +224,9 @@ function App() {
                     <option>def not this though</option>
                   </Select>
                 </SelectWrapper>
-              </InputLabel>
-              <InputLabel> How's the range here? {form.range}
-                <Range
+              </Label>
+              <Label> How's the range here? {form.range}
+                <RangeSlider
                   name="range"
                   min="0"
                   max="100"
@@ -234,7 +234,7 @@ function App() {
                   value={form.range}
                   onChange={handleChange}
                 />
-              </InputLabel>
+              </Label>
             </Form>
             <Button color="blue">Submit</Button>
           </ContentDiv>
