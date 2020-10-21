@@ -3,9 +3,9 @@ export { Card, ColorPanel, ContentDiv, HorizontalRule } from './components/struc
 export { GlobalTheme } from './components/GlobalTheme/GlobalTheme';
 export { Button } from './components/actions';
 export { chazzTheme } from './components/GlobalTheme/theme';
-export { Banner, Badge } from './components/feedback';
-export { Form } from './components/form';
+export { Badge } from './components/feedback';
 export { TextArea } from './components/TextArea';
+export { Banner } from './components/Banner';
 export { InputHelpText } from './components/InputHelpText';
 export { RangeSlider } from './components/RangeSlider';
 export { Label } from './components/Label';

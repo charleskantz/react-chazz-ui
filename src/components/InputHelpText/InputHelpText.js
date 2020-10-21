@@ -10,8 +10,9 @@ export const InputHelp = styled.div`
 
   ${props => props.error && `
     color: ${props.theme.color.red.base};
-    &::before {
-      content: 'xxx ';
+
+    & svg {
+      padding-bottom: 2px;
     }
   `}
 `;

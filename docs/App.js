@@ -18,7 +18,6 @@ import {
   Label,
   InputHelpText,
   TextArea,
-  Form,
   Checkbox,
   CheckboxLabel,
   RadioButton,
@@ -87,20 +86,20 @@ function App() {
         </Card>
         <Card>
           <ContentDiv>
-            <Banner>
+            <Banner >
               This is a banner test
             </Banner>
             <H4>Testing card creation with placeholder text TES</H4>
-            <Banner color="blue">
-              This is a banner test
+            <Banner color="teal" close>
+              This is a banner test what happens when shit is so long it has to be multipole lines
             </Banner>
             <Body>
               Hi there my name is body type <Badge color="yellow">Yep here</Badge>
             </Body>
             <Label> Testing the label
-              <TextField error type="text" placeholder="placeholder text here" />
+              <TextField type="text" placeholder="placeholder text here" />
             </Label>
-            <InputHelpText>Testing 1 2 3</InputHelpText>
+            <InputHelpText >Testing 1 2 3</InputHelpText>
             <Button>Click Me</Button>
           </ContentDiv>
         </Card>
@@ -132,7 +131,8 @@ function App() {
               Give us your contact information and our fake customer
               service team will get back to you shortly.
             </Body>
-            <Form>
+            <Banner color="red" close>Here's a cool notification!</Banner>
+            <form>
               <Label> First Name
                 <TextField
                   type='text'
@@ -141,9 +141,10 @@ function App() {
                   autoComplete='given-name'
                   value={form.firstname}
                   onChange={handleChange}
+                  error={true}
                 />
               </Label>
-              <InputHelpText>Testing 1 2 3</InputHelpText>
+              <InputHelpText error={true} >Testing 1 2 3</InputHelpText>
               <Label> Last Name
                 <TextField
                   type='text'
@@ -235,8 +236,8 @@ function App() {
                   onChange={handleChange}
                 />
               </Label>
-            </Form>
             <Button color="blue">Submit</Button>
+            </form>
           </ContentDiv>
         </Card>
       </Container>
