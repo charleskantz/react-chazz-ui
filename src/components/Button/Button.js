@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
   ${props => props.theme.typography.labelStyle}
   ${props => props.fullWidth && "width: 100%;"}
   display: block;
   padding: 0 22px;
-  height: 44px;
+  height: ${props => props.slim ? `36px` : `44px`};
   background: ${props => props.color
     ? props.theme.color[props.color].base : props.theme.color.indigo.base};
   border-radius: 22px;

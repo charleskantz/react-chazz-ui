@@ -10,3 +10,7 @@ export const CloseSpan = styled.span`
     color: ${props => props.theme.color[props.color]?.base || props.theme.color.sky.dark};
   }
 `;
+
+export const ContentSpan = styled.div`
+  width: 100%;
+`;

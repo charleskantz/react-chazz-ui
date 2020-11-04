@@ -10,12 +10,20 @@ import {
   sky,
   ink
 } from './color';
+
 import {
   labelStyle,
   bodyStyle,
   headingStyle,
   captionStyle
 } from './typography';
+
+import {
+  columns,
+  gutterWidth,
+  breakpoints,
+  containerMaxWidths
+} from './variables';
 
 /* Global Theme for Chazz UI */
 
@@ -39,5 +47,11 @@ export const chazzTheme = {
     captionStyle,
     headingFont: "'Quicksand', sans-serif",
     bodyFont: "'Montserrat', sans-serif"
+  },
+  grid: {
+    columns,
+    gutterWidth,
+    breakpoints,
+    containerMaxWidths
   }
 }

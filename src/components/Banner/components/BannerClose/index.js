@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Close } from 'styled-icons/material-rounded';
 import { StyledBanner } from '../../Banner';
-import { CloseSpan } from './BannerClose';
+import { CloseSpan, ContentSpan } from './BannerClose';
 
 export function BannerClose({ color, children, ...props }) {
 
@@ -19,7 +19,7 @@ export function BannerClose({ color, children, ...props }) {
     <>
       {isOpen &&
         <StyledBanner animate={animate} color={color} {...props}>
-          <div>{children}</div>
+          <ContentSpan>{children}</ContentSpan>
           <CloseSpan color={color} onClick={closeBanner}>
             <Close size={20} />
           </CloseSpan>

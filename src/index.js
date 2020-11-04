@@ -1,8 +1,10 @@
-export { H1, H2, H3, H4, H5, Body, BodyLabel } from './components/GlobalTheme/typography';
-export { Card, ColorPanel, ContentDiv, HorizontalRule } from './components/structure';
+// Theme exports
 export { GlobalTheme } from './components/GlobalTheme/GlobalTheme';
-export { Button } from './components/actions';
 export { chazzTheme } from './components/GlobalTheme/theme';
+export { H1, H2, H3, H4, H5, Body, BodyLabel } from './components/GlobalTheme/typography';
+export { ColorPanel, ContentDiv } from './components/structure';
+export { HorizontalRule } from './components/HorizontalRule';
+export { Button } from './components/Button';
 export { Badge } from './components/feedback';
 export { TextArea } from './components/TextArea';
 export { Banner } from './components/Banner';
@@ -15,3 +17,6 @@ export { RadioLabel, RadioGroup } from './components/RadioButton/RadioButton';
 export { Checkbox } from './components/Checkbox/';
 export { TextField } from './components/TextField/';
 export { CheckboxLabel } from './components/Checkbox/Checkbox';
+export { Row } from './components/Row';
+export { Col } from './components/Col';
+export { Card } from './components/Card';
