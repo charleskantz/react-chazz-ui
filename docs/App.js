@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   H1,
   H2,
@@ -23,20 +23,18 @@ import {
 import styled from 'styled-components';
 import FormSample from './FormSample';
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-`;
-
 function App() {
+
+  const [ loading, setLoading ] = useState(false);
+
+  const handleSwitch = () => {
+    setLoading(load => !load);
+  }
 
   return (
     <GlobalTheme>
       <Row>
-        <Col span={4}>
+        <Col span={4} order={1}>
           <Card>
             <ContentDiv>
               <H1>Hello World This is Heading One</H1>
@@ -51,7 +49,7 @@ function App() {
             </ContentDiv>
           </Card>
         </Col>
-        <Col span={4}>
+        <Col span={4} order={3}>
           <Card>
             <ContentDiv>
               <Banner >
@@ -77,7 +75,7 @@ function App() {
             </ContentDiv>
           </Card>
         </Col>
-        <Col span={4}>
+        <Col span={4} order={2}>
           <Card>
             <ColorPanel>
               Here's some cool text for the color panel
@@ -91,7 +89,7 @@ function App() {
                 up a lot of space so my sample text looks
                 more like a real thing.
               </Body>
-              <Button fullWidth color="teal">Click Me</Button>
+              <Button danger loading={loading ? 'loading' : undefined} onClick={handleSwitch}>Click Me</Button>
             </ContentDiv>
           </Card>
         </Col>

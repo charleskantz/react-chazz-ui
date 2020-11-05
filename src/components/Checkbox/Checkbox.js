@@ -20,7 +20,7 @@ export const Icon = styled.svg`
   fill: none;
   stroke: white;
   stroke-width: 3px;
-  padding-bottom: .75px;
+  margin-bottom: 3px;
 `;
 
 export const StyledCheckbox = styled.div`

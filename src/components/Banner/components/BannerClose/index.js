@@ -20,8 +20,8 @@ export function BannerClose({ color, children, ...props }) {
       {isOpen &&
         <StyledBanner animate={animate} color={color} {...props}>
           <ContentSpan>{children}</ContentSpan>
-          <CloseSpan color={color} onClick={closeBanner}>
-            <Close size={20} />
+          <CloseSpan color={color} >
+            <Close onClick={closeBanner} size={20} />
           </CloseSpan>
         </StyledBanner>
       }

@@ -7,6 +7,10 @@ export const StyledCol = styled.div`
   flex-grow: 1;
   flex-basis: 0;
   flex: 0 0 ${props => props.span ? props.span : `100%`};
+
+  order: ${props => props.order ? props.order : `inherit`};
+
   ${props => props.offset && `margin-left: ${props.offset};`}
+
 
 `;

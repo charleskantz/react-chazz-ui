@@ -21,8 +21,8 @@ export const HiddenRadio = styled.input.attrs({ type: 'radio'})`
 // center dot of radio button
 export const RadioDot = styled.div`
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   width: 10px;
   height: 10px;
   border-radius: 5px;
