@@ -20,12 +20,11 @@ import {
   HorizontalRule,
   Row, Col
 } from 'react-chazz-ui';
-import styled from 'styled-components';
 import FormSample from './FormSample';
 
 function App() {
 
-  const [ loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSwitch = () => {
     setLoading(load => !load);
@@ -34,22 +33,30 @@ function App() {
   return (
     <GlobalTheme>
       <Row>
-        <Col span={4} order={1}>
-          <Card>
-            <ContentDiv>
-              <H1>Hello World This is Heading One</H1>
-              <H2>Heading Two Checking in, this is Heading Two</H2>
-              <H3>Heading Three <Badge color="sky">Completed</Badge></H3>
-              <H4>Heading Four This is a Header</H4>
-              <Body>
-                Hi there my name is body type and I take
-                up a lot of space so my sample text looks
-                more like a real thing.
+        <Col
+          span={12}
+          order={2}
+          offset={0}
+          md={{ span: 5, offset: 1, order: 1 }}
+          lg={{ span: 6, offset: 0, order: 2 }}
+        >
+          <H1>Hello World This is Heading One</H1>
+          <H2>Heading Two Checking in, this is Heading Two</H2>
+          <H3>Heading Three <Badge color="sky">Completed</Badge></H3>
+          <H4>Heading Four This is a Header</H4>
+          <Body>
+            Hi there my name is body type and I take
+            up a lot of space so my sample text looks
+            more like a real thing.
               </Body>
-            </ContentDiv>
-          </Card>
         </Col>
-        <Col span={4} order={3}>
+        <Col
+          span={12}
+          order={1}
+          offset={0}
+          md={{ span: 5, offset: 0, order: 2 }}
+          lg={{ span: 6, offset: 0, order: 1 }}
+        >
           <Card>
             <ContentDiv>
               <Banner >
@@ -60,7 +67,7 @@ function App() {
                 <H5>This is a cool banner!</H5>
                 <HorizontalRule />
                 <Body>
-                  This is a banner test what happens when shit is so long it has to be multipole lines
+                  This is a banner test what happens when shit is so long it has to be multiple lines
                 </Body>
                 <Button slim>Yeah baby</Button>
               </Banner>
@@ -75,7 +82,7 @@ function App() {
             </ContentDiv>
           </Card>
         </Col>
-        <Col span={4} order={2}>
+        {/* <Col span={4} order={2}>
           <Card>
             <ColorPanel>
               Here's some cool text for the color panel
@@ -92,7 +99,7 @@ function App() {
               <Button danger loading={loading ? 'loading' : undefined} onClick={handleSwitch}>Click Me</Button>
             </ContentDiv>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
       <Row gutter={10}>
         <Col>
