@@ -22,12 +22,12 @@ const CenterSpan = styled.span`
   align-items: center;
 `;
 
-export function Loading({notext, ...props}) {
+export function Loading({text, notext, ...props}) {
   return (
     notext
       ? <LoadingIcon notext {...props}/>
       : <CenterSpan>
-          <LoadingIcon {...props}/> Loading
+          <LoadingIcon {...props}/> {text}
         </CenterSpan>
   )
 }

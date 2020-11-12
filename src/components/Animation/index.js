@@ -27,7 +27,7 @@ export const animationLength = `.15s`;
 export const vanishLength = `.25s`;
 
 export const animation = css`
-  ${selectAnim} ${animationLength} linear;
+  ${selectAnim} ${animationLength} ease-out 0s 1 normal forwards;
 `;
 export const vanishAnimation = css`
   ${vanishAnim} ${vanishLength} ease-out 0s 1 normal forwards;

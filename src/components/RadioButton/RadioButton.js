@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animation } from '../Animation'
+import { animation } from '../Animation';
 
 /* Radio Button styling */
 

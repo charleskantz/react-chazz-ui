@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animation } from '../Animation'
 
 export const StyledButton = styled.button`
   ${props => props.theme.typography.labelStyle}
@@ -9,17 +10,20 @@ export const StyledButton = styled.button`
   justify-content: center;
   border: ${props => `1px ${props.borderType} ${props.theme.color[props.borderColor].base}`};
   border-radius: ${props => props.shape === 'rounded' ? `4px` : props.shape === 'square' ? `none` : `22px`};
-  padding: 0 22px;
+  padding: ${p => p.size === 'small' ? `0 16px` : `0 22px`};
   background: ${props => props.color === 'ink'
     ? 'white' : props.theme.color[props.color].base};
   color: ${props => props.color === 'ink' ? props.theme.color.ink.base : `white`};
-  margin: ${props => props.right
-    ? "0 0 0 auto" : props.left ? "0 auto 0 0" : "none"};
+  margin: ${props => props.align === 'right'
+    ? "0 0 0 auto" : props.align === 'center' ? "0 auto" : "none"};
   cursor: pointer;
   outline: none;
   transition: all 150ms ease-out;
+  animation: ${props => props.clickAnim ? animation : `none`};
+
 
   &:hover {
+    transform: scale(1.018);
     ${props => props.color === 'ink'
       ? `
         color: ${props.theme.color.blue.base};
@@ -29,7 +33,6 @@ export const StyledButton = styled.button`
     }
 
     &:focus {
-
       box-shadow: 0 0 0 3px ${props => props.theme.color.blue.light};
     }
   }

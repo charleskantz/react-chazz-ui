@@ -3,7 +3,6 @@ import { BannerBasic, BannerClose } from './components';
 
 export function Banner({ close, type, children, ...props }) {
 
-  const bgColor = 'sky';
   const bannerTypes = [ 'success', 'info', 'warning', 'error' ];
 
   if (type && bannerTypes.includes(type)) {
