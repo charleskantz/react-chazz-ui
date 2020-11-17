@@ -2,68 +2,72 @@ import styled from 'styled-components';
 import { animation } from '../Animation'
 
 export const StyledButton = styled.button`
-  ${props => props.theme.typography.labelStyle}
-  height: ${props => props.size === 'small' ? `24px` : props.size === 'large' ? `44px` : `36px`};
-  ${props => props.block && "width: 100%;"}
+  ${p => p.theme.typography.labelStyle}
+  height: ${p => p.size === 'small' ? `24px` : p.size === 'large' ? `44px` : `36px`};
+  width: ${p => p.width};
   display: flex;
   align-items: center;
   justify-content: center;
-  border: ${props => `1px ${props.borderType} ${props.theme.color[props.borderColor].base}`};
-  border-radius: ${props => props.shape === 'rounded' ? `4px` : props.shape === 'square' ? `none` : `22px`};
-  padding: ${p => p.size === 'small' ? `0 16px` : `0 22px`};
-  background: ${props => props.color === 'ink'
-    ? 'white' : props.theme.color[props.color].base};
-  color: ${props => props.color === 'ink' ? props.theme.color.ink.base : `white`};
-  margin: ${props => props.align === 'right'
-    ? "0 0 0 auto" : props.align === 'center' ? "0 auto" : "none"};
+  border: ${p => `1px ${p.borderType} ${p.theme.color[p.borderColor].base}`};
+  border-radius: ${p => p.shape === 'round' ? `4px` : p.shape === 'square' ? `none` : `22px`};
+  padding: ${p => p.size === 'small' ? `0 12px` : `0 22px`};
+  background: ${p => p.color === 'ink'
+    ? 'white' : p.theme.color[p.color].base};
+  color: ${p => p.color === 'ink' ? p.theme.color.ink.base : `white`};
+  margin: ${p => p.align === 'right'
+    ? "0 0 0 auto" : p.align === 'center' ? "0 auto" : "none"};
   cursor: pointer;
   outline: none;
   transition: all 150ms ease-out;
-  animation: ${props => props.clickAnim ? animation : `none`};
-
+  animation: ${p => p.clickAnim ? animation : `none`};
 
   &:hover {
-    transform: scale(1.018);
-    ${props => props.color === 'ink'
+    ${p => p.color === 'ink'
       ? `
-        color: ${props.theme.color.blue.base};
-        border: 1px ${props.borderType} ${props.theme.color.blue.base};
+        color: ${!p.disabled && p.theme.color.blue.base};
+        border: 1px ${p.borderType} ${!p.disabled && p.theme.color.blue.base};
       ` : `
-        background: ${props.theme.color[props.color].dark};`
+        background: ${!p.disabled && p.theme.color[p.color].dark};`
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px ${props => props.theme.color.blue.light};
+      box-shadow: 0 0 0 3px ${p => p.theme.color.blue.light};
     }
   }
 
-  ${props => props.transparent && `
+  ${p => p.transparent && `
     background: transparent;
-    border: 1px ${props.borderType} ${props.theme.color[props.color].base};
-    color: ${props.theme.color[props.color].base};
+    border: 1px ${p.borderType} ${p.theme.color[p.color].base};
+    color: ${p.theme.color[p.color].base};
     &:hover {
       background: transparent;
-      border: 1px ${props.borderType} ${props.theme.color[props.color].dark};
-      color: ${props.theme.color[props.color].dark};
+      border: 1px ${p.borderType} ${!p.disabled && p.theme.color[p.color].dark};
+      color: ${p.theme.color[p.color].dark};
     }
   `}
 
-
-  ${props => props.disabled && `
-    background: ${props.theme.color.sky.light};
-    border: 1px ${props.borderType} ${props.theme.color.sky.base};
-    color: ${props.theme.color.sky.base};
+  ${p => p.disabled && `
+    background: ${p.theme.color.sky.light};
+    border: 1px ${p.borderType} ${p.theme.color.sky.base};
+    color: ${p.theme.color.sky.base};
     &:hover {
-      background: ${props.theme.color.sky.light};
+      background: ${p.theme.color.sky.base};
+      color: ${p.theme.color.sky.light};
       cursor: not-allowed;
     }
   `}
-  ${props => props.loading && `
-    background: ${props.theme.color[props.color].light};
-    color: white;
+
+  ${p => p.loading && `
+    background: ${p.transparent
+      ? 'transparent'
+      : ['default', 'dashed'].includes(p.type)
+        ? 'white'
+        : p.theme.color[p.color].light};
+    color: ${[ 'default', 'dashed' ].includes(p.type) || p.transparent
+      ? p.theme.color.sky.dark : 'white'};
     cursor: wait;
     &:hover {
-      background: ${props.theme.color[props.color].light};
+      background: ${p.theme.color[p.color].light};
     }
   `}
 `;

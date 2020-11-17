@@ -27,9 +27,12 @@ export const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: ${props => props.checked ? props.theme.color.blue.base : 'white'};
-  border: 1px solid ${props => props.checked ? props.theme.color.blue.base : props.theme.color.sky.dark};
+  background: ${props => props.disabled ? props.theme.color.sky.light
+    : props.checked ? props.theme.color.blue.base : 'white'};
+  border: 1px solid ${props => props.disabled ? props.theme.color.sky.base
+    : props.checked ? props.theme.color.blue.base : props.theme.color.sky.dark};
   border-radius: 4px;
+  cursor: ${p => p.disabled ? 'not-allowed' : 'pointer'};
   transition: all 150ms;
 
   ${HiddenCheckbox}:focus + & {
@@ -38,6 +41,7 @@ export const StyledCheckbox = styled.div`
 
   ${Icon} {
     visibility: ${props => props.checked ? 'visible' : 'hidden'};
+    ${p => p.disabled && `stroke: ${p.theme.color.sky.base};`}
   }
 
   &:focus, &:hover {
@@ -45,6 +49,7 @@ export const StyledCheckbox = styled.div`
   }
 
   animation: ${props => props.checked ? animation : `none`};
+
 `;
 
 export const CheckboxContainer = styled.div`

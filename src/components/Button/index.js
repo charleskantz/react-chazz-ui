@@ -12,7 +12,8 @@ export function Button({
   align = 'left',
   label = 'Submit',
   size = 'default',
-  block = false,
+  width = 'auto',
+  shape = 'round',
   onClick,
   children,
   ...props }) {
@@ -55,18 +56,20 @@ export function Button({
 
   return (
     <StyledButton
+    {...props}
+      type={type}
       transparent={transparent}
       borderColor={borderColor}
       color={color}
       disabled={disabled}
       borderType={borderType}
-      loading={loading}
+      loading={loading ? 'loading' : undefined}
       align={align}
-      block={block}
       size={size}
+      shape={shape}
+      width={width}
       clickAnim={clickAnim}
       onClick={handleClick}
-      {...props}
     >
       {loading ? <Loading size="14" notext /> : label || children}
     </StyledButton>
@@ -78,6 +81,12 @@ Button.propTypes = {
   type: PropTypes.oneOf(['default', 'primary', 'dashed']),
   /** Sets button size to three presets: small, medium, large */
   size: PropTypes.oneOf(['small', 'default', 'large']),
+  /** Sets button size to three presets: small, medium, large */
+  shape: PropTypes.oneOf(['square', 'round', 'circle']),
+  /** Manually sets width of button. A value of '100%' will make button fill its parent's width.
+   * Useful for maintaining consistent width when button enters loading state.
+  */
+  width: PropTypes.string,
   /** Places button in a loading state */
   loading: PropTypes.bool,
   /** Sets the danger status of button */
@@ -89,7 +98,5 @@ Button.propTypes = {
   /** Sets the position of the button horizontally */
   align: PropTypes.oneOf(['left', 'center', 'right']),
   /** Text for button  */
-  label: PropTypes.string,
-  /** Fits button width to its parent width */
-  block: PropTypes.bool
+  label: PropTypes.string
 }
