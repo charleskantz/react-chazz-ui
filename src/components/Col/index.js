@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyledCol } from './Col';
-import { chazzTheme } from 'react-chazz-ui';
+import { chazzTheme } from '../GlobalTheme/theme';
 import { colToPercent } from '../../utils/colToPercent';
+import PropTypes from 'prop-types';
 
-export function Col({ flex, offset, order, span, children, ...props }) {
+export function Col({ sm, md, lg, xl, flex, offset = 0, order, span = 12, children, ...props }) {
 
   const breakpoints = [ 'sm', 'md', 'lg', 'xl' ];
 
@@ -64,4 +65,31 @@ export function Col({ flex, offset, order, span, children, ...props }) {
       {children}
     </StyledCol>
   )
+}
+
+Col.propTypes = {
+  /** Sets width of Col based on 12-column grid */
+  span: PropTypes.number,
+  /** Adds margin-left to Col based on 12-column grid */
+  offset: PropTypes.number,
+  /** Manually set order of columns. If some elements do not have order
+   * defined, then ordered items will come AFTER unordered ones.
+   */
+  order: PropTypes.number,
+  /** Creates separate rules for Col based on 'sm' breakpoint.
+   * { `span`, `offset`, `order` }
+   */
+  sm: PropTypes.objectOf(PropTypes.number),
+    /** Creates separate rules for Col based on 'md' breakpoint.
+   * { `span`, `offset`, `order` }
+   */
+  md: PropTypes.objectOf(PropTypes.number),
+    /** Creates separate rules for Col based on 'lg' breakpoint.
+   * { `span`, `offset`, `order` }
+   */
+  lg: PropTypes.objectOf(PropTypes.number),
+    /** Creates separate rules for Col based on 'xl' breakpoint.
+   * { `span`, `offset`, `order` }
+   */
+  xl: PropTypes.objectOf(PropTypes.number),
 }

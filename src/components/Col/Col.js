@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const StyledCol = styled.div`
   position: relative;
   width: 100%;
-  max-width: ${props => props.span ? props.span : `100%`};
+  max-width: ${p => p.span ? p.span : `100%`};
   flex-grow: 1;
   flex-basis: 0;
-  flex: 0 0 ${props => props.span ? props.span : `100%`};
-  order: ${props => props.order ? props.order : `inherit`};
-  ${props => props.offset && `margin-left: ${props.offset};`}
+  flex: 0 0 ${p => p.span ? p.span : `100%`};
+  order: ${p => p.order ? p.order : `inherit`};
+  ${p => p.offset && `margin-left: ${p.offset};`}
 
   ${p => p.sm && `
     @media (min-width: ${p.theme.grid.breakpoints.sm}) {
