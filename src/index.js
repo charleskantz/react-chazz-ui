@@ -3,7 +3,7 @@ export { GlobalTheme } from './components/GlobalTheme/GlobalTheme';
 export { chazzTheme } from './components/GlobalTheme/theme';
 export { H1, H2, H3, H4, H5, Body, BodyLabel } from './components/GlobalTheme/typography';
 export { ColorPanel, ContentDiv } from './components/structure';
-export { HorizontalRule } from './components/HorizontalRule';
+export { Divider } from './components/Divider';
 export { Button } from './components/Button';
 export { Badge } from './components/feedback';
 export { TextArea } from './components/TextArea';

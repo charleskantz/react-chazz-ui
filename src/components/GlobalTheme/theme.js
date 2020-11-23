@@ -21,6 +21,7 @@ import {
 import {
   columns,
   gutterWidth,
+  cornerRadius,
   breakpoints,
   containerMaxWidths
 } from './variables';
@@ -51,6 +52,7 @@ export const chazzTheme = {
   grid: {
     columns,
     gutterWidth,
+    cornerRadius,
     breakpoints,
     containerMaxWidths
   }

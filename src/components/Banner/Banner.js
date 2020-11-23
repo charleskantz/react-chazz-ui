@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { vanishAnimation } from '../Animation'
-import { HorizontalRule } from '../HorizontalRule';
+import { Divider } from '../Divider';
 
 export const StyledBanner = styled.div`
   ${p => p.theme.typography.bodyStyle}
@@ -14,7 +14,7 @@ export const StyledBanner = styled.div`
   justify-content: space-between;
   animation: ${p => p.animate ? vanishAnimation : `none`};
 
-  & ${HorizontalRule} {
+  & ${Divider} {
     background: ${p => p.theme.color[p.color]?.dark || p.theme.color.sky.dark};
     transition: all 150ms;
     &:hover {

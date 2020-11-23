@@ -4,6 +4,9 @@ export const columns = 12;
 // default gutter width
 export const gutterWidth = '30px';
 
+// default corner radius
+export const cornerRadius = '4px';
+
 // default media query breakpoints
 export const breakpoints = {
   // Extra small screen / phone

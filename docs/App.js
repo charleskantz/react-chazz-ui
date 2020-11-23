@@ -17,7 +17,7 @@ import {
   TextField,
   Label,
   InputHelpText,
-  HorizontalRule,
+  Divider,
   Row, Col
 } from 'react-chazz-ui';
 import FormSample from './FormSample';
@@ -65,7 +65,7 @@ function App() {
               <H4>Testing card creation with placeholder text TES</H4>
               <Banner color="blue" close>
                 <H5>This is a cool banner!</H5>
-                <HorizontalRule />
+                <Divider />
                 <Body>
                   This is a banner test what happens when shit is so long it has to be multiple lines
                 </Body>

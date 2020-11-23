@@ -11,7 +11,8 @@ export function Col({ sm, md, lg, xl, flex, offset = 0, order, span = 12, childr
   const parseSpan = spanVal => {
     if (spanVal) {
       if (spanVal > chazzTheme.grid.columns || spanVal < 1) {
-        throw Error(`Span value must be an integer between 1 and ${chazzTheme.grid.columns}.`);
+        console.warn(`Span value must be an integer between 1 and ${chazzTheme.grid.columns}.`);
+        spanVal = 12;
       }
     } else {
       spanVal = 12;
@@ -22,7 +23,8 @@ export function Col({ sm, md, lg, xl, flex, offset = 0, order, span = 12, childr
   const parseOffset = offsetVal => {
     if (offsetVal) {
       if (offsetVal > chazzTheme.grid.columns || offsetVal < 1) {
-        throw Error(`Offset value must be an integer between 1 and ${chazzTheme.grid.columns}.`);
+        console.warn(`Offset value must be an integer between 1 and ${chazzTheme.grid.columns}.`);
+        offsetVal = 0;
       }
     } else {
       offsetVal = 0;
