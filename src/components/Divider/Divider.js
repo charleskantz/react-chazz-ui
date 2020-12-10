@@ -8,12 +8,12 @@ export const StyledDivider = styled.div`
 
   width: ${p => p.width};
   height: ${p => p.direction === 'vertical' ? `.9em` : `1px`};
-  margin: ${p => p.direction === 'vertical' ? `0 0 0 15px` : `20px auto`};
+  margin: ${p => p.direction === 'vertical' ? `0 0 -2px 15px` : `20px auto`};
 `;
 
 export const DividerWrapper = styled.div`
   display: ${p => p.direction === `vertical` ? `inline-block` : `flex`};
-  width: 100%;
+  width: ${p => p.direction === 'vertical' ? `auto` : `100%`};
   align-items: center;
 `;
 

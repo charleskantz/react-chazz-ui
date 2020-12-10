@@ -6,7 +6,7 @@ export { ColorPanel, ContentDiv } from './components/structure';
 export { Divider } from './components/Divider';
 export { Button } from './components/Button';
 export { Badge } from './components/feedback';
-export { TextArea } from './components/TextArea';
+export { Input } from './components/Input';
 export { Banner } from './components/Banner';
 export { InputHelpText } from './components/InputHelpText';
 export { RangeSlider } from './components/RangeSlider';

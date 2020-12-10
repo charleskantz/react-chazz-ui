@@ -15,6 +15,10 @@ export default {
   }
 };
 
+const DivCentered = styled.div`
+  text-align: center;
+`;
+
 const Basic = (args) => <Divider {...args} />;
 export const Primary = Basic.bind({});
 Primary.args = {
@@ -25,13 +29,27 @@ Primary.args = {
   children: ''
 };
 
-const Text = () =>
-  <Divider>
-    Here's some text for the divider
-  </Divider>;
+const Text = () => (
+  <>
+    <Divider>Here's some text at Header size</Divider>
+    <Divider bodyText={true} >Here's some text at body size</Divider>
+  </>
+)
 export const WithText = Text.bind({});
 
-const Horizontals = () =>
+const Styling = () =>
+  <DivCentered>
+    <p>Horizontal styles</p>
+    <Divider />
+    <Divider dashed />
+    <p>Vertical styles</p>
+    <br />
+    <Divider direction='vertical' />
+    <Divider direction='vertical' dashed />
+  </DivCentered>
+export const Styles = Styling.bind({});
+
+const Verticals = () =>
   <>
     Test 1
     <Divider direction='vertical' />
@@ -39,4 +57,4 @@ const Horizontals = () =>
     <Divider direction='vertical' />
     Test 3
   </>
-export const Vertical = Horizontals.bind({});
+export const Vertical = Verticals.bind({});

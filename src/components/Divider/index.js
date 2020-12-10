@@ -2,7 +2,6 @@ import React from 'react';
 import { StyledDivider, DividerWrapper, StyledText } from './Divider';
 import PropTypes from 'prop-types';
 
-
 export function Divider({ dashed, className, direction, bodyText, textJustify, children, ...props }) {
 
   let leftDivider = '100%';
